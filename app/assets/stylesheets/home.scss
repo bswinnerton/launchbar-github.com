@@ -2,17 +2,39 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+html {
+  height: 100%;
+}
+
 body {
-  background-color: #FFDC3F;
-  color: #6B6A65;
+  background: linear-gradient(135deg, #471E7F, #E99DFF) fixed;
+  color: #FFFFFF;
   text-align: center;
-  font-family: sans-serif;
+  font-family: 'Overlock', sans-serif;
 
   h1 {
-    color: #1F1E1D;
+    font-family: 'Josefin Slab', cursive;
+    font-weight: 400;
+    color: #FDFBFF;
   }
 
   a {
     color: #FFFFFF;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
+}
+
+  .heading {
+    font-size: 24px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }
+
+  .main-preview img {
+    width: 600px;
   }
 }
