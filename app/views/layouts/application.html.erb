@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>A GitHub plugin for LaunchBar</title>
+    <title>GitHub for LaunchBar</title>
     <%= csrf_meta_tags %>
 
     <link href="https://fonts.googleapis.com/css?family=Josefin+Slab|Overlock" rel="stylesheet">
@@ -9,6 +9,10 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="GitHub for LaunchBar" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://launchbar-github.com" />
+    <meta property="og:image" content="<%= asset_path('site-preview.png') %>" />
   </head>
 
   <body>
