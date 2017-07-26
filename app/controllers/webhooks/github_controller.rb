@@ -2,6 +2,8 @@ require 'net/http'
 
 module Webhooks
   class GithubController < ApplicationController
+    class HerokuRequestFailed < StandardError; end
+
     DIGEST = OpenSSL::Digest.new('sha1')
     SECRET = ENV.fetch('GITHUB_WEBHOOK_SECRET')
 
@@ -15,7 +17,7 @@ module Webhooks
       if bump_download_url(tag_name)
         head 200, content_type: 'application/json'
       else
-        head 500, content_type: 'application/json'
+        head 503, content_type: 'application/json'
       end
     end
 
