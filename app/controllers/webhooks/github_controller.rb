@@ -2,8 +2,6 @@ require 'net/http'
 
 module Webhooks
   class GithubController < ApplicationController
-    class HerokuRequestFailed < StandardError; end
-
     DIGEST = OpenSSL::Digest.new('sha1')
     SECRET = ENV.fetch('GITHUB_WEBHOOK_SECRET')
 
