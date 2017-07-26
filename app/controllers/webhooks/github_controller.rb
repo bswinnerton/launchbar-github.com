@@ -8,9 +8,9 @@ module Webhooks
     skip_before_action :verify_authenticity_token
 
     def create
-      return_404 unless is_authenticated?
-      return_422 unless tag_name.present?
-      return_422 if is_prerelease?
+      return not_found unless is_authenticated?
+      return unprocessable_entity unless tag_name.present?
+      return unprocessable_entity if is_prerelease?
 
       if bump_download_url(tag_name)
         head 200, content_type: 'application/json'
@@ -21,11 +21,11 @@ module Webhooks
 
     private
 
-    def return_404
-      raise ActionController::RoutingError.new('Not Found')
+    def not_found
+      head 404, content_type: 'application/json'
     end
 
-    def return_422
+    def unprocessable_entity
       head 422, content_type: 'application/json'
     end
 
