@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   get '/install', to: redirect('/auth/github')
   get '/auth/:provider/callback', to: 'sessions#create'
   get '/auth/failure', to: redirect('/')
+  post '/webhooks/github', to: 'webhooks/github#create'
 end
